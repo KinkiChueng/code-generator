@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+    <name>service</name>
+    <filePath>src/main/java/${packageName}/${moduleName}/service/${subModuleName}</filePath>
+    <fileName>I${ClassName}Service.java</fileName>
+    <content><![CDATA[
+/**
+ * 
+ */
+package ${packageName}.${moduleName}.service<#if subModuleName != "">.${subModuleName}</#if>;
+
+import java.util.List;
+
+import com.pengji.linker.baseentity.Page;
+import ${packageName}.${moduleName}.entity<#if subModuleName != "">.${subModuleName}</#if>.${ClassName};
+
+
+/**
+ * ${functionName}Service
+ * @author ${functionAuthor}
+ * @version ${functionVersion}
+ */
+public interface I${ClassName}Service extends IBaseService<${ClassName}> {
+	
+}]]>
+    </content>
+</template>
