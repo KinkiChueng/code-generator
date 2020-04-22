@@ -1,4 +1,4 @@
-package com.code.generator.mapper;
+package mapper;
 
 import java.util.List;
 

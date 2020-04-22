@@ -1,30 +1,19 @@
-package com.code.generator.model;
+package com.code.generator.utils.baseentity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.pengji.linker.baseentity.app.TMember;
-import com.pengji.linker.baseentity.sys.User;
+import com.google.common.collect.Maps;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-import org.hibernate.validator.constraints.Length;
 
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlTransient;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.io.Serializable;
 import java.util.Map;
 
-
 /**
- * 数据Entity类
- *
- * @author 王浩升 - WHS
- * @version 2017-06-12
+ * Created by lasia on 2020/4/22.
  */
-public abstract class BaseEntity<T> {
+public abstract class BaseEntity<T> implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     /**
@@ -65,6 +54,18 @@ public abstract class BaseEntity<T> {
     public void setId(String id) {
         this.id = id;
     }
+
+//    private User currentUser;
+//
+//    @JsonIgnore
+//    @XmlTransient
+//    public User getCurrentUser() {
+//        return currentUser;
+//    }
+//
+//    public void setCurrentUser(User currentUser) {
+//        this.currentUser = currentUser;
+//    }
 
     @JsonIgnore
     @XmlTransient
@@ -165,5 +166,5 @@ public abstract class BaseEntity<T> {
     public static final String ENABLE_FLAG_NORMAL = "YES";
     public static final String ENABLE_FLAG_DELETE = "NO";
 
-
 }
+

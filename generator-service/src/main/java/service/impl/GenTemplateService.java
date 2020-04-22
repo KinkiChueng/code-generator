@@ -1,7 +1,7 @@
 package com.code.generator.service.impl;
 
 
-import com.code.generator.mapper.GenTemplateDao;
+import mapper.GenTemplateDao;
 import com.code.generator.model.GenTemplate;
 import com.code.generator.model.Page;
 import com.code.generator.service.IGenTemplateService;
