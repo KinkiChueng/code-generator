@@ -1,7 +1,7 @@
 package com.code.generator.service;
 
-import com.code.generator.model.GenTemplate;
-
+import com.pengji.linker.baseentity.Page;
+import com.pengji.linker.gencode.entity.GenTemplate;
 
 /**
  * Created by lasia on 2020/3/18.
@@ -10,7 +10,7 @@ public interface IGenTemplateService {
 
     GenTemplate get(String id);
 
-//    public Page<GenTemplate> find(Page<GenTemplate> page, GenTemplate genTemplate);
+    Page<GenTemplate> find(Page<GenTemplate> page, GenTemplate genTemplate);
 
     void save(GenTemplate genTemplate);
 

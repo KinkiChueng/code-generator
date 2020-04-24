@@ -1,8 +1,8 @@
 package com.code.generator.controller;
 
-import com.code.generator.model.GenTemplate;
-import com.code.generator.model.Page;
 import com.code.generator.service.IGenTemplateService;
+import com.pengji.linker.baseentity.Page;
+import com.pengji.linker.gencode.entity.GenTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Controller
 @RequestMapping(value = "${adminPath}/gen/genTemplate")
-public class genController {
+public class genController extends BaseController {
 
     @Autowired
     private IGenTemplateService genTemplateService;

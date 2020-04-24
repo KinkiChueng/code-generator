@@ -1,7 +1,6 @@
 package mapper;
 
-
-import com.code.generator.model.GenTemplate;
+import com.pengji.linker.gencode.entity.GenTemplate;
 
 /**
  * 代码模板DAO接口

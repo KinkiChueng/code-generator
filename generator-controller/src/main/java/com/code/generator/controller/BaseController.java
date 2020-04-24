@@ -3,16 +3,9 @@
  */
 package com.code.generator.controller;
 
-import com.pengji.linker.baseentity.DataEntity;
-import com.pengji.linker.baseentity.sys.User;
-import com.pengji.linker.common.beanvalidator.BeanValidators;
-import com.pengji.linker.common.mapper.JsonMapper;
-import com.pengji.linker.common.persistence.utils.UserUtils;
-import com.pengji.linker.common.utils.DateUtils;
-import com.pengji.linker.common.utils.OAOConstants;
-import com.pengji.linker.common.utils.StringUtils;
+import com.code.generator.utils.BeanValidators;
 import org.apache.commons.lang3.StringEscapeUtils;
-import org.apache.shiro.authc.AuthenticationException;
+import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +17,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.naming.AuthenticationException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.ConstraintViolationException;
@@ -229,26 +223,6 @@ public abstract class BaseController {
     public <T> T fromJson(Class<T> clazz, HttpServletRequest request) {
         String reString = (String) request.getAttribute(CONTENT_KEY);
         return JsonMapper.getInstance().fromJson(reString, clazz);
-    }
-
-    /**
-     * 如果不是pjadmin，通过当前用户的商户号取，否则查全部 lasia
-     * @param bean
-     * @param <T>
-     * @return
-     */
-
-    public <T> T putProductSerialNumber(DataEntity<T> bean) throws IllegalAccessException {
-        User systemUser = UserUtils.getUser();
-        if (systemUser.getId().equals(OAOConstants.NUM_ONE)) {
-            bean.setProductSerialNumber(null);
-        } else {
-            if (StringUtils.isEmpty(systemUser.getProductSerialNumber())) {
-                throw new IllegalAccessException("非法请求，缺少productSerialNumber");
-            }
-            bean.setProductSerialNumber(systemUser.getProductSerialNumber());
-        }
-        return (T) bean;
     }
 
 }

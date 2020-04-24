@@ -1,17 +1,14 @@
 package com.code.generator.service.impl;
 
-
-import mapper.GenTemplateDao;
-import com.code.generator.model.GenTemplate;
-import com.code.generator.model.Page;
+import com.pengji.linker.baseentity.Page;
+import com.pengji.linker.gencode.entity.GenTemplate;
 import com.code.generator.service.IGenTemplateService;
-import com.code.generator.utils.EntityUtils;
+import mapper.GenTemplateDao;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 
 /**
  * 代码模板Service
@@ -39,10 +36,10 @@ public class GenTemplateService implements IGenTemplateService {
             genTemplate.setContent(StringEscapeUtils.unescapeHtml4(genTemplate.getContent()));
         }
         if (StringUtils.isBlank(genTemplate.getId())) {
-            EntityUtils.preInsert(genTemplate);
+//            EntityUtils.preInsert(genTemplate);
             genTemplateDao.insert(genTemplate);
         } else {
-            EntityUtils.preUpdate(genTemplate);
+//            EntityUtils.preUpdate(genTemplate);
             genTemplateDao.update(genTemplate);
         }
     }
