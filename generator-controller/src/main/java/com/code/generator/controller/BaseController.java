@@ -4,6 +4,7 @@
 package com.code.generator.controller;
 
 import com.code.generator.utils.BeanValidators;
+import com.code.generator.utils.JsonMapper;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
@@ -25,6 +26,7 @@ import javax.validation.ValidationException;
 import javax.validation.Validator;
 import java.beans.PropertyEditorSupport;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
@@ -208,7 +210,11 @@ public abstract class BaseController {
         binder.registerCustomEditor(Date.class, new PropertyEditorSupport() {
             @Override
             public void setAsText(String text) {
-                setValue(DateUtils.parseDate(text));
+                try {
+                    setValue(DateUtils.parseDate(text));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
             // @Override
             // public String getAsText() {
