@@ -9,24 +9,27 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+        <mysql.driver.version>5.1.30</mysql.driver.version>
+    </properties>
+
     <groupId>com.code.generator</groupId>
     <artifactId>generator-controller</artifactId>
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-eureka -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
+            <version>1.4.7.RELEASE</version>
         </dependency>
 
-        <!-- spring boot实现Java Web服务-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <!--暴露各种指标-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
         <dependency>
@@ -47,8 +50,64 @@
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>RELEASE</version>
+        </dependency>
 
+        <!-- jdbc driver -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.driver.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- 添加JDBC依赖 重要-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <exclusions>
+                <!--去掉默认的tomcat-jdbc的依赖 重要-->
+                <exclusion>
+                    <groupId>org.apache.tomcat</groupId>
+                    <artifactId>tomcat-jdbc</artifactId>
+                </exclusion>
+            </exclusions>
+            <version>2.2.6.RELEASE</version>
+        </dependency>
     </dependencies>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
+    <!--&lt;!&ndash; tomcat7插件 &ndash;&gt;-->
+    <!--<build>-->
+    <!--<outputDirectory>${project.basedir}/src/main/webapp/WEB-INF/classes/</outputDirectory>-->
+    <!--<plugins>-->
+    <!--<plugin>-->
+    <!--<groupId>org.apache.tomcat.maven</groupId>-->
+    <!--<artifactId>tomcat7-maven-plugin</artifactId>-->
+    <!--<version>${tomcat.version}</version>-->
+    <!--<configuration>-->
+    <!--<port>${webserver.port}</port>-->
+    <!--<url>http://localhost:${webserver.port}/manager/text</url>-->
+    <!--<path>/${project.artifactId}</path>-->
+    <!--<uriEncoding>${project.build.sourceEncoding}</uriEncoding>-->
+    <!--<update>true</update>-->
+    <!--<username>admin</username>-->
+    <!--<password>111</password>-->
+    <!--</configuration>-->
+    <!--</plugin>-->
+    <!--</plugins>-->
+    <!--</build>-->
 </project>

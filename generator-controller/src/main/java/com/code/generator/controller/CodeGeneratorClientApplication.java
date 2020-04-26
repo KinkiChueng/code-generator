@@ -5,10 +5,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
- * Created by lasia on 2020/4/25.
+ * @author lasia
+ * @date 2020/4/25
  */
 @SpringBootApplication
 @EnableEurekaClient
+@ComponentScan(excludeFilters={@Filter(type=CUSTOM, classes={TypeExcludeFilter.class}), @Filter(type=CUSTOM, classes={AutoConfigurationExcludeFilter.class})})
 public class CodeGeneratorClientApplication {
 
     public static void main(String[] args) {

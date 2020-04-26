@@ -5,7 +5,7 @@ package com.code.generator.utils;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonGenerator;
-import com.google.gson.JsonParser;
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonParser.Feature;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -15,17 +15,14 @@ import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import com.fasterxml.jackson.databind.*;
 import java.io.IOException;
 import java.util.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 简单封装Jackson，实现JSON String<->Java Object的Mapper. 封装不同的输出风格,
@@ -254,33 +251,33 @@ public class JsonMapper extends ObjectMapper {
     public static Object fromJsonString(String jsonString, Class<?> clazz) {
         return JsonMapper.getInstance().fromJson(jsonString, clazz);
     }
-
-    /**
-     * @Title: toArray @author:唐振宇 @Description: json字符串转json数组 @param
-     * jsonString @param clazz @return @throws
-     */
-    public static <T> List<T> toArray(String jsonString, Class<T> clazz) {
-        List<T> list = new ArrayList<T>();
-        // 创建一个JsonParser
-        JsonParser parser = new JsonParser();
-        Gson gson = new Gson();
-        // 通过JsonParser对象可以把json格式的字符串解析成一个JsonElement对象
-        JsonElement el = parser.parse(jsonString);
-        // 把JsonElement对象转换成JsonArray
-        JsonArray jsonArray = null;
-        if (el.isJsonArray()) {
-            jsonArray = el.getAsJsonArray();
-        }
-        Iterator<JsonElement> it = jsonArray.iterator();
-        while (it.hasNext()) {
-            JsonElement e = it.next();
-            // JsonElement转换为JavaBean对象
-            T t = gson.fromJson(e, clazz);
-            list.add(t);
-        }
-
-        return list;
-    }
+//
+//    /**
+//     * @Title: toArray @author:唐振宇 @Description: json字符串转json数组 @param
+//     * jsonString @param clazz @return @throws
+//     */
+//    public static <T> List<T> toArray(String jsonString, Class<T> clazz) {
+//        List<T> list = new ArrayList<T>();
+//        // 创建一个JsonParser
+//        JsonParser parser = new JsonParser();
+//        Gson gson = new Gson();
+//        // 通过JsonParser对象可以把json格式的字符串解析成一个JsonElement对象
+//        JsonElement el = parser.parse(jsonString);
+//        // 把JsonElement对象转换成JsonArray
+//        JsonArray jsonArray = null;
+//        if (el.isJsonArray()) {
+//            jsonArray = el.getAsJsonArray();
+//        }
+//        Iterator<JsonElement> it = jsonArray.iterator();
+//        while (it.hasNext()) {
+//            JsonElement e = it.next();
+//            // JsonElement转换为JavaBean对象
+//            T t = gson.fromJson(e, clazz);
+//            list.add(t);
+//        }
+//
+//        return list;
+//    }
 
     /**
      * 测试

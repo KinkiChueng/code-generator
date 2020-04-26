@@ -2,7 +2,7 @@ package com.code.generator.utils;
 
 import com.code.generator.utils.baseentity.DataEntity;
 import com.google.common.collect.Lists;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.hibernate.validator.constraints.Length;
 
 import javax.xml.bind.annotation.XmlRootElement;

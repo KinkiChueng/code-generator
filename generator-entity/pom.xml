@@ -9,10 +9,9 @@
     <artifactId>generator-entity</artifactId>
     <name>generator-entity</name>
     <dependencies>
-
         <dependency>
-            <groupId>com.pengji.xls</groupId>
-            <artifactId>linker-sys-entity</artifactId>
+            <groupId>com.code.generator</groupId>
+            <artifactId>generator-base</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

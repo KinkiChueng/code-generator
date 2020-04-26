@@ -1,25 +1,27 @@
 package com.code.generator.controller;
 
 import com.code.generator.service.IGenTemplateService;
-import com.pengji.linker.baseentity.Page;
+import com.code.generator.utils.baseentity.Page;
 import com.pengji.linker.gencode.entity.GenTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by lasia on 2020/3/18.
  */
-@Controller
+@RestController
 @RequestMapping(value = "${adminPath}/gen/genTemplate")
-public class genController extends BaseController {
+public class GenController extends BaseController {
 
-    @Autowired
+    @Resource
     private IGenTemplateService genTemplateService;
 
     @RequestMapping(value = {"list", ""})

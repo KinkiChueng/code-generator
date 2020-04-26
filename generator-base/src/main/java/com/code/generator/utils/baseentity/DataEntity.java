@@ -18,9 +18,6 @@ import java.util.List;
 
 /**
  * 数据Entity类
- *
- * @author 王浩升 - WHS
- * @version 2017-06-12
  */
 public abstract class DataEntity<T> extends BaseEntity<T> {
 

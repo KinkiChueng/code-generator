@@ -1,6 +1,6 @@
 package com.pengji.linker.gencode.entity;
 
-import com.pengji.linker.sys.entity.Dict;
+import cn.hutool.core.lang.Dict;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
