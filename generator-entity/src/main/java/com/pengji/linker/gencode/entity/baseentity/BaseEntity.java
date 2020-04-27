@@ -1,4 +1,4 @@
-package com.code.generator.utils.baseentity;
+package com.pengji.linker.gencode.entity.baseentity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.Maps;

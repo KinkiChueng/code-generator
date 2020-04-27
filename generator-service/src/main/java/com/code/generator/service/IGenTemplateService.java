@@ -1,6 +1,6 @@
 package com.code.generator.service;
 
-import com.code.generator.utils.baseentity.Page;
+import com.pengji.linker.gencode.entity.baseentity.Page;
 import com.pengji.linker.gencode.entity.GenTemplate;
 
 /**

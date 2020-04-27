@@ -1,7 +1,7 @@
 package com.pengji.linker.gencode.entity;
 
-import com.code.generator.utils.baseentity.DataEntity;
 import com.google.common.collect.Lists;
+import com.pengji.linker.gencode.entity.baseentity.DataEntity;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.validator.constraints.Length;
 
@@ -35,19 +35,11 @@ public class GenTable extends DataEntity<GenTable> {
 
     @Length(min = 1, max = 200)
     public String getName() {
-        return StringUtils.lowerCase(name);
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getComments() {
-        return comments;
-    }
-
-    public void setComments(String comments) {
-        this.comments = comments;
     }
 
     public String getClassName() {
@@ -59,7 +51,7 @@ public class GenTable extends DataEntity<GenTable> {
     }
 
     public String getParentTable() {
-        return StringUtils.lowerCase(parentTable);
+        return parentTable;
     }
 
     public void setParentTable(String parentTable) {
@@ -67,7 +59,7 @@ public class GenTable extends DataEntity<GenTable> {
     }
 
     public String getParentTableFk() {
-        return StringUtils.lowerCase(parentTableFk);
+        return parentTableFk;
     }
 
     public void setParentTableFk(String parentTableFk) {

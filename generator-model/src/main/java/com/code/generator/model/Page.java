@@ -1,6 +1,6 @@
 package com.code.generator.model;
 
-import com.code.generator.utils.CookieUtils;
+import com.pengji.linker.gencode.entity.CookieUtils;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.apache.commons.lang3.StringUtils;
 

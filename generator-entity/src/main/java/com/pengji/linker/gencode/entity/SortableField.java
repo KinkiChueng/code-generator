@@ -1,4 +1,4 @@
-package com.code.generator.utils;
+package com.pengji.linker.gencode.entity;
 
 import javax.validation.constraints.NotNull;
 import java.lang.reflect.Field;

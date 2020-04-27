@@ -23,9 +23,18 @@
             <!--<artifactId>spring-tx</artifactId>-->
             <!--<version>5.0.8.RELEASE</version>-->
         <!--</dependency>-->
+        <!-- 添加JDBC依赖 重要-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
+            <exclusions>
+                <!--去掉默认的tomcat-jdbc的依赖 重要-->
+                <exclusion>
+                    <groupId>org.apache.tomcat</groupId>
+                    <artifactId>tomcat-jdbc</artifactId>
+                </exclusion>
+            </exclusions>
+            <version>2.2.6.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>com.code.generator</groupId>

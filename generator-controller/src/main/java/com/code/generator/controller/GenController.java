@@ -1,10 +1,8 @@
 package com.code.generator.controller;
 
 import com.code.generator.service.IGenTemplateService;
-import com.code.generator.utils.baseentity.Page;
+import com.pengji.linker.gencode.entity.baseentity.Page;
 import com.pengji.linker.gencode.entity.GenTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Created by lasia on 2020/3/18.
+ * @author lasia
+ * @date 2020/3/18
  */
 @RestController
 @RequestMapping(value = "${adminPath}/gen/genTemplate")

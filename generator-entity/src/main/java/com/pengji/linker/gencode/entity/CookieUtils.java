@@ -1,4 +1,4 @@
-package com.code.generator.utils;
+package com.pengji.linker.gencode.entity;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

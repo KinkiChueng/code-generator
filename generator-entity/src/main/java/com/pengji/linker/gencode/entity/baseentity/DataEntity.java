@@ -1,11 +1,10 @@
-package com.code.generator.utils.baseentity;
+package com.pengji.linker.gencode.entity.baseentity;
 
 /**
  * Created by lasia on 2020/4/22.
  */
-
-import com.code.generator.utils.SortableField;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.pengji.linker.gencode.entity.SortableField;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotNull;
@@ -18,6 +17,7 @@ import java.util.List;
 
 /**
  * 数据Entity类
+ * @author dell
  */
 public abstract class DataEntity<T> extends BaseEntity<T> {
 

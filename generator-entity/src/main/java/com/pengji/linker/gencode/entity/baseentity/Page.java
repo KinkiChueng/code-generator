@@ -1,11 +1,10 @@
-package com.code.generator.utils.baseentity;
+package com.pengji.linker.gencode.entity.baseentity;
 
 /**
  * Created by lasia on 2020/4/22.
  */
-
-import com.code.generator.utils.CookieUtils;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.pengji.linker.gencode.entity.CookieUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;

@@ -1,7 +1,7 @@
 package com.code.generator.service.impl;
 
 import com.code.generator.service.IGenTemplateService;
-import com.code.generator.utils.baseentity.Page;
+import com.pengji.linker.gencode.entity.baseentity.Page;
 import com.pengji.linker.gencode.entity.GenTemplate;
 import io.micrometer.core.instrument.util.StringUtils;
 import mapper.GenTemplateDao;

@@ -1,6 +1,6 @@
 package com.pengji.linker.gencode.entity;
 
-import com.code.generator.utils.baseentity.DataEntity;
+import com.pengji.linker.gencode.entity.baseentity.DataEntity;
 import org.hibernate.validator.constraints.Length;
 
 /**
