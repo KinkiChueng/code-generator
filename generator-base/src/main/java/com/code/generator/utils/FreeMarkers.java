@@ -5,9 +5,6 @@ package com.code.generator.utils;
 
 import com.code.generator.utils.exception.Exceptions;
 import freemarker.template.Configuration;
-import org.springframework.core.io.DefaultResourceLoader;
-import org.springframework.core.io.Resource;
-import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.Map;
@@ -42,32 +39,11 @@ public class FreeMarkers {
         }
     }
 
-    public static Configuration buildConfiguration(String directory) throws IOException {
-        Configuration cfg = new Configuration();
-        Resource path = new DefaultResourceLoader().getResource(directory);
-        cfg.setDirectoryForTemplateLoading(path.getFile());
-        return cfg;
-    }
-
-    public static void main(String[] args) throws IOException {
-        // // renderString
-        // Map<String, String> model =
-        // com.google.common.collect.Maps.newHashMap();
-        // model.put("userName", "calvin");
-        // String result = FreeMarkers.renderString("hello ${userName}", model);
-        // System.out.println(result);
-        // // renderTemplate
-        // Configuration cfg = FreeMarkers.buildConfiguration("classpath:/");
-        // Template template = cfg.getTemplate("testTemplate.ftl");
-        // String result2 = FreeMarkers.renderTemplate(template, model);
-        // System.out.println(result2);
-
-        // Map<String, String> model =
-        // com.google.common.collect.Maps.newHashMap();
-        // model.put("userName", "calvin");
-        // String result = FreeMarkers.renderString("hello ${userName}
-        // ${r'${userName}'}", model);
-        // System.out.println(result);
-    }
+//    public static Configuration buildConfiguration(String directory) throws IOException {
+//        Configuration cfg = new Configuration();
+//        Resource path = new DefaultResourceLoader().getResource(directory);
+//        cfg.setDirectoryForTemplateLoading(path.getFile());
+//        return cfg;
+//    }
 
 }

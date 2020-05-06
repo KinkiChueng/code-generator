@@ -106,7 +106,7 @@ public abstract class CrudService<D extends CrudDao<T>, T extends DataEntity<T>>
         dao.delete(entity);
     }
 
-    public String getGlobeConfig(String url) {
-        return Global.getConfig(url);
-    }
+//    public String getGlobeConfig(String url) {
+//        return Global.getConfig(url);
+//    }
 }

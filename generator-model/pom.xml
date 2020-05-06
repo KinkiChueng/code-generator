@@ -11,13 +11,6 @@
 
     <groupId>com.code.generator</groupId>
     <artifactId>generator-model</artifactId>
-    <dependencies>
-        <dependency>
-            <groupId>com.code.generator</groupId>
-            <artifactId>generator-base</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
 
 
 </project>

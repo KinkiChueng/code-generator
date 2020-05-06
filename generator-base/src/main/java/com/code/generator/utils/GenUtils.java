@@ -9,9 +9,8 @@ import com.pengji.linker.gencode.entity.*;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.DefaultResourceLoader;
-import org.springframework.core.io.Resource;
 
 import java.io.*;
 import java.util.Date;
@@ -232,8 +231,9 @@ public class GenUtils {
         try {
             String pathName = "/templates/modules/gen/" + fileName;
             // logger.debug("File to object: {}", pathName);
-            Resource resource = new ClassPathResource(pathName);
-            InputStream is = resource.getInputStream();
+//            Resource resource = new ClassPathResource(pathName);
+//            InputStream is = resource.getInputStream();
+            InputStream is = new FileInputStream(pathName);
             BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
             StringBuilder sb = new StringBuilder();
             while (true) {
@@ -315,6 +315,8 @@ public class GenUtils {
         }
         return templateList;
     }
+    @Value("${string.port}")
+    private static String dbType;
 
     /**
      * 获取数据模型
@@ -352,7 +354,7 @@ public class GenUtils {
                         ? ":" + StringUtils.lowerCase(genScheme.getSubModuleName()) : "")
                         + ":" + model.get("className"));
 
-        model.put("dbType", Global.getConfig("jdbc.type"));
+        model.put("dbType", dbType);
 
         model.put("table", genScheme.getGenTable());
 
@@ -393,16 +395,6 @@ public class GenUtils {
         } else {
             logger.debug(" file extents === " + fileName);
             return "文件已存在：" + fileName + "<br/>";
-        }
-    }
-
-    public static void main(String[] args) {
-        try {
-            GenConfig config = getConfig();
-            System.out.println(config);
-            System.out.println(JaxbMapper.toXml(config));
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
